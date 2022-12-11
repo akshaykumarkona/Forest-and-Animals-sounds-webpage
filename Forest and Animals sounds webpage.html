@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest & Animals Sounds</title>
+    <style>
+        *{margin:0px;
+        padding:0px;
+        box-sizing:border-box;
+        background-color:#61ddc4;
+        }
+        .cls1{background-color:#61ddc4;
+               text-align: center;
+                position: relative;
+                top:375px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .btn{padding:15px 40px;
+                background-color: #3FBACC;
+                color:black;
+            margin:10px;
+            border: 2px solid black;
+            border-radius: 15px;}
+        .cls{
+            background-color:#61ddc4;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size:40px;
+            text-align: center;
+            position:relative;
+            top: 150px;
+          
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="cls">A Webpage for listening forest and animals sounds</h1>
+    <div class="cls1">
+    <audio src="../Sounds/forest sounds.mp3" id="Forest"></audio>
+    <audio src="../Sounds/angry-elephant-40916.mp3" id="Elephant"></audio>
+    <audio src="../Sounds/birds_chirping.mp3" id="Birds"></audio>
+    <audio src="../Sounds/jelenie-deer-69860.mp3" id="Deer"></audio>
+    <audio src="../Sounds/lion-lament-6926.mp3" id="Lion"></audio>
+    <audio src="../Sounds/monkeys3-30632.mp3" id="Monkeys"></audio>
+    <audio src="../Sounds/parrot-31178.mp3" id="Parrot"></audio>
+    <audio src="../Sounds/snake-hiss-95241.mp3" id="Snake"></audio>
+    <audio src="../Sounds/Tiger.mp3" id="Tiger"></audio>
+    <div id="buttons"></div>
+</div>
+
+    
+    <script>
+        const sounds=["Forest","Elephant","Birds","Deer","Lion","Monkeys","Parrot","Snake","Tiger"]
+    
+    sounds.forEach(i => {
+        const btn=document.createElement('button')
+        btn.classList.add('btn')
+
+        btn.innerText=i
+
+        btn.addEventListener('click',()=>{
+            stopSongs()
+            document.getElementById(i).play()
+        })
+        let q=document.querySelector("#buttons")
+        q.appendChild(btn)
+    })
+    function stopSongs(){
+        sounds.forEach(sound=>{
+            const song=document.getElementById(sound)
+            song.pause()
+            song.currentTime=0;
+        })
+    }
+    </script>
+
+</body>
+</html>
